@@ -13,10 +13,10 @@
 ![demo](./demo.gif)
 
 
-## About
+## Usage
 In order to use Paint GitHub, you must sign into Paint GitHub and allow Paint GitHub to access your repositories. Paint GitHub will persist your access token in order to create repositories and make commits to "paint" your contribution graph on your behalf. Persisting an access token is also required for a paint subscription. If there are any security concerns, please explicitly remove Paint GitHub from your Authorized OAuth Apps after painting your contribution graph.
 
-## Instructions
+## Features
 
 ### Paint: creates a private repository to paint your contribution graph
 
@@ -30,7 +30,6 @@ In order to use Paint GitHub, you must sign into Paint GitHub and allow Paint Gi
 1. Choose a subscription level. The higher the level, the denser we will aim to color your contribution graph as the days pass. 📈
 2. Within 24 hours you should see a new shade of green on the present day. If not, it means no commits were made today based on your chosen subscription level density. 🕒
 3. Note: this does not paint your entire contribution graph outright. Subscribing will simply make daily commits on your behalf starting from the day of subscription. 📅
-
 
 ## Disclaimer
 
