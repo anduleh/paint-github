@@ -1,6 +1,6 @@
 ![header](./header.gif)
 
-## Try it here: <a href="https://paintgithub.com" target="_blank">Paint GitHub</a>
+## Try it now: <a href="https://paintgithub.com" target="_blank">Paint GitHub</a>
 
 <p>
   <img src="https://img.shields.io/github/license/anduleh/paint-github" />
