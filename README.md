@@ -1,6 +1,5 @@
-<img align="right" src="./bulbasaur.gif" width="300" height="300" style="margin-right:30px">
-
 <h1 style="margin-bottom: 0px; padding-bottom: 1px;  border-bottom: none; margin-top:60px !important ; font-size:80px">Paint GitHub</h1>
+<img align="right" src="./bulbasaur.gif" width="300" height="300" style="margin-right:30px">
 
 <p style="margin-left:5px">The most convenient way to paint your GitHub contribution graph!</p>
 
