@@ -1,0 +1,27 @@
+{
+  "name": "paintgithub",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.3",
+    "redux": "^4.0.5",
+    "react-redux": "^7.2.1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "firebase": "^7.17.1",
+    "email-validator": "^2.0.4",
+    "memoize-one": "^5.1.1",
+    "moment": "^2.27.0",
+    "prop-types": "^15.7.2",
+    "react-device-detect": "^1.13.1",
+    "react-github-login-button": "^1.0.1",
+    "react-tooltip": "^4.2.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
