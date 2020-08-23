@@ -1,4 +1,4 @@
-<img src="./header.gif" width="100%"/>
+<img src="./pics/header.gif" width="100%"/>
 
 ## Try it now: <a href="https://paintgithub.com" target="_blank">Paint GitHub</a>
 
@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/version-v1-blue" />
 </p>
 
-![demo](./demo.gif)
+![demo](./pics/demo.gif)
 
 
 ## Usage
