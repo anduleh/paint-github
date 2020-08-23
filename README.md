@@ -1,4 +1,4 @@
-![header](./header.gif)
+<img src="./header.gif" width="100%"/>
 
 ## Try it now: <a href="https://paintgithub.com" target="_blank">Paint GitHub</a>
 
