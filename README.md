@@ -43,4 +43,4 @@ Paint GitHub is provided as is, and we make no promises or guarantees about this
 - [Material UI](https://material-ui.com/)
 
 ## Author
-Andrew Li
+Andrew Li ([andrewmyli96@gmail.com](mailto:andrewmyli96@gmail.com)) 
