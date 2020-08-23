@@ -14,7 +14,7 @@
 
 
 ## About
-In order to use Paint GitHub, you must sign into Paint GitHub and allow Paint GitHub to access your repositories. Paint GitHub will persist your access token in order to create repositories and make commits on your behalf to "paint" your contribution graph. Persisting an access token is also required for a paint subscription. If there are any security concerns, please explicitly remove Paint GitHub from your Authorized OAuth Apps after painting your contribution graph.
+In order to use Paint GitHub, you must sign into Paint GitHub and allow Paint GitHub to access your repositories. Paint GitHub will persist your access token in order to create repositories and make commits to "paint" your contribution graph on your behalf. Persisting an access token is also required for a paint subscription. If there are any security concerns, please explicitly remove Paint GitHub from your Authorized OAuth Apps after painting your contribution graph.
 
 ## Instructions
 
