@@ -41,5 +41,5 @@ Paint GitHub is provided as is, and we make no promises or guarantees about this
 - [Redux](https://redux.js.org/)
 - [Material UI](https://material-ui.com/)
 
-## Author
+## Creator
 Andrew Li ([andrewmyli96@gmail.com](mailto:andrewmyli96@gmail.com)) 
