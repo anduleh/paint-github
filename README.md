@@ -7,7 +7,9 @@
   <a href="https://paintgithub.com" target="_blank">
     <img src="https://img.shields.io/website.svg?style=flat&url=https%3A%2F%2Fpaintgithub.com" >
   </a>
+    <a href="https://paintgithub.com" target="_blank">
     <img src="https://img.shields.io/badge/version-v1-blue" />
+  </a>
 </p>
 
 ![demo](./pics/demo.gif)
