@@ -3,7 +3,9 @@
 ## Try it now: <a href="https://paintgithub.com" target="_blank">Paint GitHub</a>
 
 <p>
+  <a href="https://en.wikipedia.org/wiki/MIT_License" target="_blank">
   <img src="https://img.shields.io/github/license/anduleh/paint-github" />
+  </a>
   <a href="https://paintgithub.com" target="_blank">
     <img src="https://img.shields.io/website.svg?style=flat&url=https%3A%2F%2Fpaintgithub.com" >
   </a>
