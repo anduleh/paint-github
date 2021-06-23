@@ -5,7 +5,6 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
-import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -127,22 +126,6 @@ const Help = () => {
         <Typography variant="body2" gutterBottom>
           In order to use Paint GitHub, you must sign in and allow Paint GitHub
           to access your public repositories, user data, and email address.
-          Paint GitHub will persist your access token in order to make commits
-          on your behalf. If there are any security concerns, please explicitly
-          remove Paint GitHub from your{" "}
-          <Link
-            href="https://github.com/settings/applications"
-            underline="none"
-            target="_blank"
-            rel="noopener"
-            variant="button"
-            color="textPrimary"
-            className={classes.link}
-            aria-label="GitHub"
-          >
-            Authorized OAuth Apps
-          </Link>{" "}
-          after painting your contribution graph.
         </Typography>
         <Typography
           variant="h5"
