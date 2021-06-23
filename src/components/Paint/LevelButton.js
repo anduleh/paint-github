@@ -18,9 +18,9 @@ import longPress from "../../helpers/longPress.js";
 let base = {
   width: "100%",
   minWidth: "0px",
-  height: "40px",
   overflow: "hidden",
   border: "1px solid black",
+  height: "100%",
 };
 
 const LevelButton = (props) => {

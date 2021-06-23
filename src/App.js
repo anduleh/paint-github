@@ -97,15 +97,14 @@ function App() {
                 unsubscribe();
               } catch (err) {
                 // global var to check if someone used sign in button
-                if (!window.from_sign_in) {
-                  dispatch(
-                    updateSnackbarMessage(
-                      "Error retrieving user data. Please log out and try again."
-                    )
-                  );
-                  dispatch(toggleSnackBar(true));
-                  unsubscribe();
-                }
+
+                dispatch(
+                  updateSnackbarMessage(
+                    "Error retrieving user data. Please log out and try again."
+                  )
+                );
+                dispatch(toggleSnackBar(true));
+                unsubscribe();
               }
             }
           },

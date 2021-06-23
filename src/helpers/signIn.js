@@ -11,11 +11,11 @@ export const signIn = async (dispatch) => {
   // clear data in case a callback hit after sign out
   clearData(dispatch);
 
-  // global var to check if someone used sign in button
-  window.from_sign_in = true;
-
   var provider = new firebase.auth.GithubAuthProvider();
+  // repo - Grants full access to repositories, including private repositories.
   provider.addScope("repo");
+  // read:user - Grants access to read a user's profile data.
+  provider.addScope("read:user");
   provider.setCustomParameters({
     allow_signup: "false",
   });

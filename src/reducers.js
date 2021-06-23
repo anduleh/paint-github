@@ -14,6 +14,7 @@ import page from "./reducers/page.js";
 import subscription from "./reducers/subscription.js";
 import shade from "./reducers/shade.js";
 import bulbasaur from "./reducers/bulbasaur.js";
+import check from "./reducers/check.js";
 
 const allReducers = combineReducers({
   username,
@@ -29,6 +30,7 @@ const allReducers = combineReducers({
   page,
   shade,
   bulbasaur,
+  check,
 });
 
 export default allReducers;

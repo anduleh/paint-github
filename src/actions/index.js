@@ -133,6 +133,17 @@ export const updateMessage = (message) => {
   return { type: "updateMessage", payload: message };
 };
 
+// check
+export const toggleCheck = (check) => {
+  return check
+    ? {
+        type: "check",
+      }
+    : {
+        type: "uncheck",
+      };
+};
+
 // bulbasaur
 export const updateBulbasaur = (bulbasaur) => {
   return { type: "updateBulbasaur", payload: bulbasaur };

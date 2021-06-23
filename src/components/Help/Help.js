@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -22,6 +22,95 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": { color: "#30A14E" },
   },
 }));
+
+let faqs = [
+  {
+    question:
+      "Why does this Paint GitHub need access to public repos, private repos, user data, and email addresses?",
+    answer:
+      "When you submit a paint job, you have the option to choose between a private repo and a public repo. If you choose a private repo, commits will be counted as private contributions. Since some users choose to hide private contributions, we also need read-only user data permissions to capture the private version of their contribution graph. If we don't have read-only user data permissions, Paint GitHub will capture the public version of their contribution graph and miscalculate the commits needed for the paint job. In addition, users may opt to change their paint repo from public to private. These read-only user data permissions ensure that Paint GitHub can still recognize the state of any existing paint repo. Lastly, read-only email addresses act as identifiers for each registered account.",
+  },
+  {
+    question:
+      "After submitting my paint job, why does my resulting GitHub contribution graph not look exactly like how I painted it?",
+    answer:
+      'GitHub occasionally changes their contribution graph color algorithm and does not make it public. Therefore, our model can only make a best guess on how to paint your contribution graph. For example, GitHub\'s algorithm disregards "outliers" when calculating the different shades of green. We have no idea what constitutes an outlier in their algorithm. Is it the Z-score? Is it 1.5xIQR? Is it some form of clustering? Or maybe some combination of all three? We have tried to reverse engineer their color algorithm for days to no avail. Therefore, our model can only make a best guess on how to paint your contribution graph. We do not guarantee that the submitted paint job will reflect your contribution graph perfectly, but we will try our best.',
+  },
+
+  {
+    question:
+      "Why did Paint GitHub explicitly paint today’s date when I did not paint today’s date?",
+    answer:
+      "We need to create an explicit private repository to carry the commits that “paint” your contribution graph. It is only possible to create a repository on the present day. Creating this repository includes 2 contributions: the repository itself, and a README file to auto initialize the branch. These two contributions are responsible for the additional paint on the present day.",
+  },
+  {
+    question: "How long does it usually take to paint a contribution graph?",
+    answer:
+      "It depends on the highest number of commits made on a single day within the last year. Our algorithm spreads out your paint job’s commits into quartiles – based on the four shades of green. If the max number of commits made on a single day within the last year is high, the paint job will take longer because more commits are needed to progressively reach each darker shade of green. There is also a hard limit on the number of commits per paint job. This upper limit can take up to 1 hour to paint - no guarantees.",
+  },
+  {
+    question:
+      "I don’t like the finished paint job on my GitHub profile. How can I erase the paint?",
+    answer:
+      "Delete the associated repository holding all your paint commits. In general, Paint GitHub will create one repository to hold all your paint commits (e.g paintgithub-abcde). If you want Paint GitHub to generate a new repository for future paint jobs, simply rename the original repository to something else. If you are subscribed, Paint GitHub will create a separate private repository for those commits (e.g paintgithubsubscription-abcde). You can privatize or publicize these paint repos at your own discretion.",
+  },
+  {
+    question:
+      "I cannot create a paint job. The paint job keeps erroring out. What should I do?",
+    answer:
+      "Try signing in and out again. Usually, it is because your access token has expired and Paint GitHub needs a new one from GitHub to paint on your behalf. On very rare occasions, there will be naming conflicts when creating repo or paint jobs. Signing out and in usually solves most of these issues. Else, feel free to send us feedback.",
+  },
+  {
+    question:
+      "What kind of commits are you making to the generated repository to paint my contribution graph?",
+    answer:
+      "Paint GitHub makes empty commits into the generated repository for any given paint job. No files other than the initial README.md are created. Yes, there is an --allow-empty flag for the git commit command!",
+  },
+  {
+    question: "Why can't I paint a square with a lighter shade of green?",
+    answer:
+      "The darker a square, the more commits are made on that given day. Forcing a lighter shade of green implies removing commits from that given day. If those commits were a part of an important separate repository, it would be disastrous to remove those commits and have you lose your work. Therefore, Paint GitHub can only paint over your contribution graph and not strip anything from it.",
+  },
+  {
+    question:
+      "Why do I still not see any changes on my GitHub contribution graph even though I submitted a paint job?",
+    answer:
+      "Check your email. Wait a bit. Refresh. Check your email again. Wait a little bit longer. If nothing shows, ensure that you are logged in or showing private contributions on your contribution graph. Otherwise, submit another paint job and provide feedback if you suspect paint jobs are silently failing on a consistent basis.",
+  },
+  {
+    question: "How does Paint GitHub commit in the past?",
+    answer:
+      "Git allows overriding the author date of a commit using the --date flag.",
+  },
+  {
+    question:
+      "What kind of repositories (public or private) does Paint GitHub create?",
+    answer:
+      "If you are submitting a new paint job, Paint GitHub gives you the option of creating either a public or private repository to hold your paint commits. The subscription service however, only creates private repositories to hold subscription commits. If you want subscription commits to show publically, please ensure that you show private contributions on your contribution graph.",
+  },
+  {
+    question: "Why Bulbasaur?",
+    answer:
+      '"I\'ll take a cute green-colored character with a debatable Octocat silhouette for $400, Alex".',
+  },
+];
+
+let faqList = faqs.map((faq, index) => {
+  return (
+    <Fragment key={"faq" + index}>
+      <Typography
+        variant="body2"
+        gutterBottom
+        style={{ fontWeight: "bold", marginTop: "15px" }}
+      >
+        {index + 1}. {faq.question}
+      </Typography>
+      <Typography variant="body2" gutterBottom>
+        {faq.answer}
+      </Typography>
+    </Fragment>
+  );
+});
 
 const Help = () => {
   const classes = useStyles();
@@ -139,8 +228,8 @@ const Help = () => {
           Disclaimer:
         </Typography>
         <Typography variant="body2" gutterBottom>
-          Paint GitHub is provided as is and makes no promises or guarantees
-          about this service. Paint GitHub is not affliated with GitHub in any
+          Paint GitHub is provided as-is and makes no promises or guarantees
+          about this service. Paint GitHub is not affiliated with GitHub in any
           way. Paint GitHub is not liable for any damages or losses arising from
           your use or inability to use the service.
         </Typography>
@@ -156,129 +245,7 @@ const Help = () => {
           Frequently Asked Questions
         </Typography>
         <Divider style={{ marginBottom: "10px" }} />
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "15px" }}
-        >
-          1. After submitting my paint job, why does my resulting GitHub
-          contribution graph not look exactly like how I painted it?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          GitHub occasionally changes their contribution graph color algorithm
-          and does not make it public. Therefore, our model can only make a best
-          guess on how to color in your contribution graph. For example,
-          GitHub's algorithm disregards "outliers" when calculating the
-          different shades of green. We have no idea what constituents an
-          outlier in their algorithm. Is it the Z-score? Is it 1.5xIQR? Is it
-          some form of clustering? Or maybe some combination of all three? We
-          have tried to reverse engineer their color algorithm for days to no
-          avail. Therefore, our model can only make a best guess on how to color
-          in your contribution graph. We do not guarentee that the submitted
-          paint job will reflect your contribution graph perfectly, but we will
-          try our best.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          2. Why did Paint GitHub explicitly paint today’s date when I did not
-          paint today’s date?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          We need to create an explicit repository to carry the commits that
-          “paint” your contribution graph. It is only possible to create a
-          repository on the present day. Creating this repository includes 2
-          commits: the repository itself, and a the README file to auto
-          initialize the branch. These two commits contribute the paint on the
-          present day.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          3. How long does it usually take to paint a contribution graph?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          It depends on the max number of commits made on single day within the
-          last year. Our algorithm spreads out your paint job’s commits in
-          quartiles – based on the four shades of green. If the max number of
-          commits made on single day within the last year is a high number, the
-          paint job will take longer because more commits are needed to
-          progressively reach each darker shade of green.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          4. I don’t like the finished paint job on my GitHub profile. How can I
-          erase the paint?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          Delete the repository holding all the commits for your paint jobs. In
-          general, Paint GitHub will only generate one repository to hold all
-          your paint jobs. If you want Paint GitHub to generate a new repository
-          for future paint jobs, simply rename the original repository to
-          something else.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          5. I cannot create a paint job. The paint job keeps erroring out. What
-          should I do?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          Try signing in and out again. Usually it is because your access token
-          has expired and Paint GitHub needs a new one from GitHub to paint on
-          your behalf. On very rare occasions, there will be naming conflicts
-          when creating repo or paint jobs. Signing out and in usually solves
-          most of these issues. Else, feel free to send us feedback.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          6. What kind of commits are you making to the generated repository to
-          paint my contribution graph?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          Paint GitHub makes empty commits into the generated repository for any
-          given paint job. No files other than the initial README.md are
-          created. Yes, there is an --allow-empty flag for the git commit
-          command!
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          7. Why can't I paint a square with a lighter shade of green?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          The darker a square, the more commits are made on that given day.
-          Forcing a lighter shade of green implies removing commits from that
-          given day. If those commits were a part of an important separate
-          repository, it would be disastrous to remove those commits and have
-          you lose your work. Therefore, Paint GitHub can only paint over your
-          contribution graph and not strip anything from it.
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          style={{ fontWeight: "bold", marginTop: "20px" }}
-        >
-          8. Why Bulbasaur?
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          "I'll take a cute green-colored character with a debatable Octocat
-          silohette for $400, Alex".
-        </Typography>
+        {faqList}
       </Container>
     </Box>
   );

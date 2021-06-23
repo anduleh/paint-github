@@ -92,7 +92,7 @@ const Footer = (props) => {
                 </Button>
               </Link>
               <Link
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/anduleh"
                 underline="none"
                 target="_blank"
                 rel="noopener"
@@ -119,7 +119,7 @@ const Footer = (props) => {
             </Grid>
             <Grid item xs>
               <Typography align="center" display="block">
-                © 2020 Paint GitHub. All Rights Reserved.
+                © 2021 Paint GitHub. All Rights Reserved.
               </Typography>
             </Grid>
           </Grid>
