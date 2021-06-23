@@ -10,7 +10,6 @@ import {
   toggleLogin,
   updateShade,
   toggleConfirmation,
-  toggleCheck,
   toggleSame,
   updateSubmit,
   updateMessage,
@@ -43,6 +42,4 @@ export default function clearData(dispatch) {
   dispatch(updateMessage(""));
   // clear bulbasaur
   dispatch(updateBulbasaur(0));
-  // clear check
-  dispatch(toggleCheck(false));
 }

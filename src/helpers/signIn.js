@@ -12,8 +12,8 @@ export const signIn = async (dispatch) => {
   clearData(dispatch);
 
   var provider = new firebase.auth.GithubAuthProvider();
-  // repo - Grants full access to repositories, including private repositories.
-  provider.addScope("repo");
+  // public_repo - Limits access to public repositories. That includes read/write access to code.
+  provider.addScope("public_repo");
   // read:user - Grants access to read a user's profile data.
   provider.addScope("read:user");
   provider.setCustomParameters({

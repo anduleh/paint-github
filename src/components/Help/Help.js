@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
 let faqs = [
   {
     question:
-      "Why does this Paint GitHub need access to public repos, private repos, user data, and email addresses?",
+      "Why does this Paint GitHub need access to my public repositories, user data, and email address?",
     answer:
-      "When you submit a paint job, you have the option to choose between a private repo and a public repo. If you choose a private repo, commits will be counted as private contributions. Since some users choose to hide private contributions, we also need read-only user data permissions to capture the private version of their contribution graph. If we don't have read-only user data permissions, Paint GitHub will capture the public version of their contribution graph and miscalculate the commits needed for the paint job. In addition, users may opt to change their paint repo from public to private. These read-only user data permissions ensure that Paint GitHub can still recognize the state of any existing paint repo. Lastly, read-only email addresses act as identifiers for each registered account.",
+      "Paint GitHub needs public repo permissions to create and paint into public repos. Paint GitHub also needs read-only user data permissions to capture your contribution graph and correctly calculate the commits needed for every paint job. Lastly, read-only email addresses act as identifiers for each registered account.",
   },
   {
     question:
@@ -41,7 +41,7 @@ let faqs = [
     question:
       "Why did Paint GitHub explicitly paint today’s date when I did not paint today’s date?",
     answer:
-      "We need to create an explicit private repository to carry the commits that “paint” your contribution graph. It is only possible to create a repository on the present day. Creating this repository includes 2 contributions: the repository itself, and a README file to auto initialize the branch. These two contributions are responsible for the additional paint on the present day.",
+      "We need to create an explicit public repository to carry the commits that “paint” your contribution graph. It is only possible to create a repository on the present day. Creating this repository includes 2 contributions: the repository itself, and a README file to auto initialize the branch. These two contributions are responsible for the additional paint on the present day.",
   },
   {
     question: "How long does it usually take to paint a contribution graph?",
@@ -52,7 +52,7 @@ let faqs = [
     question:
       "I don’t like the finished paint job on my GitHub profile. How can I erase the paint?",
     answer:
-      "Delete the associated repository holding all your paint commits. In general, Paint GitHub will create one repository to hold all your paint commits (e.g paintgithub-abcde). If you want Paint GitHub to generate a new repository for future paint jobs, simply rename the original repository to something else. If you are subscribed, Paint GitHub will create a separate private repository for those commits (e.g paintgithubsubscription-abcde). You can privatize or publicize these paint repos at your own discretion.",
+      "Delete the associated repository holding all your paint commits. In general, Paint GitHub will only create one repository to hold all your paint commits (e.g paintgithub-abcde). If you want Paint GitHub to generate a new repository for future paint jobs, simply rename the original repository to something else. If you are subscribed, Paint GitHub will create a separate public repository for those commits (e.g paintgithubsubscription-abcde). You can privatize or publicize these paint repos at your own discretion. However, note that if you do privatize these paint repos, Paint GitHub will not be able to identify them anymore and will generate a new public paint repo as a result.",
   },
   {
     question:
@@ -75,7 +75,7 @@ let faqs = [
     question:
       "Why do I still not see any changes on my GitHub contribution graph even though I submitted a paint job?",
     answer:
-      "Check your email. Wait a bit. Refresh. Check your email again. Wait a little bit longer. If nothing shows, ensure that you are logged in or showing private contributions on your contribution graph. Otherwise, submit another paint job and provide feedback if you suspect paint jobs are silently failing on a consistent basis.",
+      "Check your email. Wait a bit. Refresh. Check your email again. Wait a little bit longer. If still nothing shows, ensure that you are logged in. Otherwise, submit another paint job and provide feedback if you suspect paint jobs are silently failing on a consistent basis.",
   },
   {
     question: "How does Paint GitHub commit in the past?",
@@ -83,10 +83,9 @@ let faqs = [
       "Git allows overriding the author date of a commit using the --date flag.",
   },
   {
-    question:
-      "What kind of repositories (public or private) does Paint GitHub create?",
+    question: "What kind of repositories does Paint GitHub create?",
     answer:
-      "If you are submitting a new paint job, Paint GitHub gives you the option of creating either a public or private repository to hold your paint commits. The subscription service however, only creates private repositories to hold subscription commits. If you want subscription commits to show publically, please ensure that you show private contributions on your contribution graph.",
+      "Paint GitHub only creates public paint repositories. This applies to both paint jobs and subscriptions. Note that if you delete, change the name, or privatize any generated paint repo, Paint GitHub will not be able to identify the original paint repo anymore. If the original paint repo cannot be found, a new one will be generated in its place.",
   },
   {
     question: "Why Bulbasaur?",
@@ -122,14 +121,15 @@ const Help = () => {
         </Typography>
         <Typography variant="subtitle2" gutterBottom>
           Paint GitHub is the most convenient way to paint your GitHub
-          Contribution graph
+          Contribution graph!
         </Typography>
         <Divider style={{ marginBottom: "10px" }} />
         <Typography variant="body2" gutterBottom>
           In order to use Paint GitHub, you must sign in and allow Paint GitHub
-          to access your repositories. Paint GitHub will persist your access
-          token in order to make commits on your behalf. If there are any
-          security concerns, please explicitly remove Paint GitHub from your{" "}
+          to access your public repositories, user data, and email address.
+          Paint GitHub will persist your access token in order to make commits
+          on your behalf. If there are any security concerns, please explicitly
+          remove Paint GitHub from your{" "}
           <Link
             href="https://github.com/settings/applications"
             underline="none"
@@ -152,7 +152,7 @@ const Help = () => {
           Instructions:
         </Typography>
         <Typography variant="h6" gutterBottom>
-          <b>Paint</b>: creates a private repository to paint your contribution
+          <b>Paint</b>: creates a public repository to paint your contribution
           graph
         </Typography>
         <ListItemText style={{ paddingLeft: "24px" }}>

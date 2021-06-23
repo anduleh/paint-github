@@ -96,8 +96,6 @@ function App() {
                 // unsubscribe, clear timeout if token resolves succesfully!
                 unsubscribe();
               } catch (err) {
-                // global var to check if someone used sign in button
-
                 dispatch(
                   updateSnackbarMessage(
                     "Error retrieving user data. Please log out and try again."
