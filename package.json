@@ -11,7 +11,7 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "firebase": "^7.17.1",
+    "firebase": "^8.6.8",
     "email-validator": "^2.0.4",
     "memoize-one": "^5.1.1",
     "moment": "^2.27.0",
