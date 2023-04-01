@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = (props) => {
   const classes = useStyles();
+  const currentYear = new Date().getFullYear();
 
   return (
     <Box id={props.id} className={classes.container}>
@@ -119,7 +120,7 @@ const Footer = (props) => {
             </Grid>
             <Grid item xs>
               <Typography align="center" display="block">
-                © 2021 Paint GitHub. All Rights Reserved.
+                © {currentYear} Paint GitHub. All Rights Reserved.
               </Typography>
             </Grid>
           </Grid>
